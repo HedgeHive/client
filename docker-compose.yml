@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  client:
+    container_name: client_hive
+    build: .
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/client
+      - /client/node_modules
+    environment:
+      - NODE_ENV=development
+    working_dir: /client
+    command: npm run dev
